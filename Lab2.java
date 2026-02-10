@@ -7,16 +7,16 @@ public class Lab2 {
     // We will be testing each required method individually when grading, so make sure to test that they work correctly
     // before submitting!
     public static void main(String[] args) {
-        System.out.print(findMax(4, 4));
-        System.out.print(isEven(4));
-        System.out.print(getPrice("s"));
-        System.out.print(isAccessGranted(21, true, "ADMIN"));
-        System.out.print(calculate(10.0,5.0,'/'));
-        System.out.print(convertTemperature(13.40,true));
-        System.out.print(calculateTax(14.90,"USA"));
-        System.out.print(isLeapYear(2026));
-        System.out.print(timeOfDay(600));
-        System.out.print(isValidTriangle(21,2,22));
+        System.out.println(findMax(4, 4));
+        System.out.println(isEven(4));
+        System.out.println(getPrice("s"));
+        System.out.println(isAccessGranted(21, true, "ADMIN"));
+        System.out.println(calculate(10.0,5.0,'/'));
+        System.out.println(convertTemperature(13.40,true));
+        System.out.println(calculateTax(14.90,"USA"));
+        System.out.println(isLeapYear(2026));
+        System.out.println(timeOfDay(600));
+        System.out.println(isValidTriangle(21,2,22));
         // test your methods here
     }
 
