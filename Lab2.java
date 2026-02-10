@@ -7,6 +7,7 @@ public class Lab2 {
     // We will be testing each required method individually when grading, so make sure to test that they work correctly
     // before submitting!
     public static void main(String[] args) {
+        System.out.print(findMax(num1, num2));
         // test your methods here
     }
 
@@ -18,6 +19,17 @@ public class Lab2 {
      * If they are equal to each other, then the method should return -1
      * */
     public static int findMax(int num1, int num2) {
+
+        if (num1 > num2 ){
+            return num1;
+        }
+        else if (num1 < num2){
+            return num2;
+        }
+        else (num1 == num2){
+            return -1;
+        }
+            
     }
 
     /*
@@ -102,12 +114,4 @@ public class Lab2 {
     /*
      * The method validTriangle should return true if it is possible for the 3 provided side lengths to form a triangle
      * false otherwise.
-     * For a triangle to be possible the sum of any two sides must be greater than the third,
-     * so given side lengths a, b, and c, all the following conditions must be true:
-     * a + b > c
-     * a + c > b
-     * b + c > a
-     * */
-    public static boolean isValidTriangle(int sideA, int sideB, int sideC){
-    }
-}
+     * For a triangle to be possible the sum of any two sides must be gre
