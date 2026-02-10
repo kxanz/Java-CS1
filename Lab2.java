@@ -7,7 +7,8 @@ public class Lab2 {
     // We will be testing each required method individually when grading, so make sure to test that they work correctly
     // before submitting!
     public static void main(String[] args) {
-        System.out.print(findMax(num1, num2));
+        System.out.print(findMax(4, 4));
+        System.out.print(isEven(4));
         // test your methods here
     }
 
@@ -26,7 +27,7 @@ public class Lab2 {
         else if (num1 < num2){
             return num2;
         }
-        else (num1 == num2){
+        else {
             return -1;
         }
             
@@ -37,6 +38,9 @@ public class Lab2 {
      * or false if it is odd
      * */
     public static boolean isEven(int num) {
+        if (num =% 2 || !(num =% 3) ){
+            return;
+        }
     }
 
     /*
@@ -114,4 +118,12 @@ public class Lab2 {
     /*
      * The method validTriangle should return true if it is possible for the 3 provided side lengths to form a triangle
      * false otherwise.
-     * For a triangle to be possible the sum of any two sides must be gre
+     * For a triangle to be possible the sum of any two sides must be greater than the third,
+     * so given side lengths a, b, and c, all the following conditions must be true:
+     * a + b > c
+     * a + c > b
+     * b + c > a
+     * */
+    public static boolean isValidTriangle(int sideA, int sideB, int sideC){
+    }
+}
