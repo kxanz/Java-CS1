@@ -12,10 +12,11 @@ public class Lab2 {
         System.out.print(getPrice("s"));
         System.out.print(isAccessGranted(21, true, "ADMIN"));
         System.out.print(calculate(10.0,5.0,'/'));
-
-
-        
+        System.out.print(convertTemperature(13.40,true));
         System.out.print(calculateTax(14.90,"USA"));
+        System.out.print(isLeapYear(2026));
+        System.out.print(timeOfDay(600));
+        System.out.print(isValidTriangle(21,2,22));
         // test your methods here
     }
 
@@ -83,7 +84,7 @@ public class Lab2 {
     public static boolean isAccessGranted(int age, boolean hasPermit, String clearanceLevel){
         if (hasPermit == true && age >= 18){
             return true;
-        } else if (hasPermit== false || clearanceLevel.equals("ADMIN") && age >= 21){
+        } else if (!hasPermit && clearanceLevel.equals("ADMIN") && age >= 21){
             return true;
         }else return false;
     }
@@ -95,17 +96,25 @@ public class Lab2 {
      * final result instead
      * If the operator is anything else, return -1
      * */
-    public static boolean calculate(double num1, double num2, char operator){
-        
+    public static double calculate(double num1, double num2, char operator){
+        switch (operator) {
+        case '+': return num1 + num2;
+        case '-': return num1 - num2;
+        case '*': return num1 * num2;
+        case '/': return (num2 == 0 ? 0.0 : num1 / num2);
+        default: return -1;
     }
-
+    }
     /*
      * The method convertTemperature, will take in a double temp, and a boolean toCelsius.
      * If toCelsius is true, then the method should return the provided temp converted to Celsius (formula is C = (F - 32)*5/9)
      * Otherwise, the formula should return the number converted to Fahrenheit (formula is F = (C*9/5) + 32)
      * */
     public static double convertTemperature(double temperature, boolean toCelsius){
-
+        if (toCelsius == true){
+            return (temperature - 32.0)*5.0/9.0;
+        } else return 
+        (temperature*9.0/5.0) + 32;
     }
 
     /*
@@ -119,7 +128,7 @@ public class Lab2 {
      * */
     public static double calculateTax(double subtotal, String countryCode){
         if (countryCode.equals("USA")){
-            return subtotal*0.7 + subtotal;
+            return subtotal*0.07 + subtotal;
         } else if (countryCode.equals("UK")){
             return subtotal*.20 + subtotal;
         }else if (countryCode.equals("GER")){
@@ -138,6 +147,15 @@ public class Lab2 {
      * e.g. the year 2000 WAS a leap year (is divisible by 4 and 100, but also 400)
      * */
     public static boolean isLeapYear(int year){
+        if (year % 400 == 0) {
+        return true;
+    } else if (year % 100 == 0) {
+        return false;
+    } else if (year % 4 == 0) {
+        return true;
+    } else {
+        return false;
+    }
     }
 
     /*
@@ -151,8 +169,16 @@ public class Lab2 {
      * times are represented as a combination of hour and minute so 11:30 becomes 1130)
      * */
     public static String timeOfDay(int hour){
+        if (hour < 0 || hour > 2359){
+            return "Invalid";
+        }else if (hour >= 500 && hour <= 1159){
+            return "Morning";
+        } else if (hour >= 1200 && hour <= 1659){
+            return "Afternoon";
+        }else if (hour >= 1700 && hour <= 2059){
+            return "Evening";
+        } else return "Night";
     }
-
     /*
      * The method validTriangle should return true if it is possible for the 3 provided side lengths to form a triangle
      * false otherwise.
@@ -163,5 +189,10 @@ public class Lab2 {
      * b + c > a
      * */
     public static boolean isValidTriangle(int sideA, int sideB, int sideC){
+        if (sideA + sideB > sideC 
+            && sideA + sideC > sideB 
+            && sideB + sideC > sideA){
+            return true;
+        } else return false;
     }
 }
