@@ -9,6 +9,13 @@ public class Lab2 {
     public static void main(String[] args) {
         System.out.print(findMax(4, 4));
         System.out.print(isEven(4));
+        System.out.print(getPrice("s"));
+        System.out.print(isAccessGranted(21, true, "ADMIN"));
+        System.out.print(calculate(10.0,5.0,'/'));
+
+
+        
+        System.out.print(calculateTax(14.90,"USA"));
         // test your methods here
     }
 
@@ -38,8 +45,11 @@ public class Lab2 {
      * or false if it is odd
      * */
     public static boolean isEven(int num) {
-        if (num =% 2 || !(num =% 3) ){
-            return;
+        if (num % 2 == 0) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
@@ -51,6 +61,17 @@ public class Lab2 {
      * else return -1.0
      * */
     public static double getPrice(String size){
+
+        if (size.equals("s")) {
+            return 12.99;
+        }
+        else if (size.equals("m")){
+            return 19.99;
+        }
+        else if (size.equals("l")) {
+            return 25.99;
+        }
+        else return -1.0;
     }
 
     /*
@@ -60,6 +81,11 @@ public class Lab2 {
      * Otherwise, return false.
      * */
     public static boolean isAccessGranted(int age, boolean hasPermit, String clearanceLevel){
+        if (hasPermit == true && age >= 18){
+            return true;
+        } else if (hasPermit== false || clearanceLevel.equals("ADMIN") && age >= 21){
+            return true;
+        }else return false;
     }
 
     /*
@@ -70,6 +96,7 @@ public class Lab2 {
      * If the operator is anything else, return -1
      * */
     public static boolean calculate(double num1, double num2, char operator){
+        
     }
 
     /*
@@ -78,6 +105,7 @@ public class Lab2 {
      * Otherwise, the formula should return the number converted to Fahrenheit (formula is F = (C*9/5) + 32)
      * */
     public static double convertTemperature(double temperature, boolean toCelsius){
+
     }
 
     /*
@@ -90,6 +118,16 @@ public class Lab2 {
      * For any other country code, assume a "Global" rate of 15%.
      * */
     public static double calculateTax(double subtotal, String countryCode){
+        if (countryCode.equals("USA")){
+            return subtotal*0.7 + subtotal;
+        } else if (countryCode.equals("UK")){
+            return subtotal*.20 + subtotal;
+        }else if (countryCode.equals("GER")){
+            return subtotal*.19 + subtotal;
+        }else if (countryCode.equals("JAP")){
+            return subtotal*.10 + subtotal;
+        } else return subtotal*.15 + subtotal;
+
     }
 
     /*
