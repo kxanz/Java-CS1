@@ -9,6 +9,10 @@ public class Lab3 {
     public static void main(String[] args) {
         int [] arr = {1,2,3,4,5};
         System.out.print(q1(arr,2));
+
+        arr [1] = 4;
+        System.out.print(q1(arr,1));
+
     }
 
     /*
@@ -58,8 +62,20 @@ public class Lab3 {
 
         The index being greater than or equal to the array’s length
     */ 
-    public static int q2(int[] arr, int index, int element){
-        
+    public static int q2(int[] arr, int index, int value){
+
+        arr [1] = 4;
+
+        if (arr == null) {
+            return -1;
+        } 
+        if (index < 0){
+            return -1;
+        } 
+        if (index >= arr.length){
+            return -1;
+        }
+        return arr[index];
     }
     /*
     Create a helper method that accepts:
@@ -79,14 +95,21 @@ public class Lab3 {
 
             The indexes are not the same value (if so, no change is required)
     */
-    public static FIXME q3(FIXME,FIXME,FIXME){
+    public static int q3(int[] array, int firstIndex,int secondIndex){
+        if (array == null) {
+            return;
+        } 
+        else if (firstIndex < 0 || firstIndex >= array.length){
+            return;
+        } else if (firstIndex == secondIndex)
 
+        return arr[index];
     }
     /*
     Create a helper method that accepts:
 
         An array
-
+ 
         A source index
 
         A destination index
@@ -183,4 +206,3 @@ public class Lab3 {
 
     }
 
-}
