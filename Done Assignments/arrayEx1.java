@@ -19,6 +19,7 @@ public class arrayEx1 {
     System.out.println(formatString(format));
     System.out.println(formatString(" afjsafak "));
   }
+  
 
   public static String formatString(String format){
     return "";
