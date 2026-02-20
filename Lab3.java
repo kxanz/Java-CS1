@@ -7,11 +7,14 @@ public class Lab3 {
     // We will be testing each required method individually when grading, so make sure to test that they work correctly
     // before submitting!
     public static void main(String[] args) {
-        int [] arr = {1,2,3,4,5};
+        int [] arr = {1 , 2 , 3, 4, 5};
+
         System.out.print(q1(arr,2));
 
-        arr [1] = 4;
+        System.out.print(q2(arr,1,4));
         System.out.print(q1(arr,1));
+
+        System.out.print(q3(arr, 0,4));
 
     }
 
@@ -63,18 +66,10 @@ public class Lab3 {
         The index being greater than or equal to the array’s length
     */ 
     public static int q2(int[] arr, int index, int value){
-
-        arr [1] = 4;
-
-        if (arr == null) {
-            return -1;
-        } 
-        if (index < 0){
-            return -1;
-        } 
-        if (index >= arr.length){
-            return -1;
-        }
+        if (arr == null) return -1;
+        if (index < 0 || index >= arr.length) return -1;
+        
+        arr[index] = value;
         return arr[index];
     }
     /*
@@ -96,14 +91,15 @@ public class Lab3 {
             The indexes are not the same value (if so, no change is required)
     */
     public static int q3(int[] array, int firstIndex,int secondIndex){
-        if (array == null) {
-            return;
-        } 
-        else if (firstIndex < 0 || firstIndex >= array.length){
-            return;
-        } else if (firstIndex == secondIndex)
+        if (array == null) return -1;
+        if (firstIndex < 0 || firstIndex >= array.length) return -1;
+        if (secondIndex < 0 || secondIndex >= array.length) return -1;
+        if (firstIndex == secondIndex) return 0;
 
-        return arr[index];
+        
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
     }
     /*
     Create a helper method that accepts:
@@ -123,8 +119,12 @@ public class Lab3 {
 
         Source and destination indexes are within range
     */
-    public static FIXME q4(FIXME,FIXME,FIXME){
+    public static int q4(int[] arr, int sourcei, int destinationi){
+        if (arr == null) return -1;
 
+        arr[destinationi] = arr[sourcei];
+
+        return arr[destinationi];
     }
     /*
     Create a helper method that accepts:
