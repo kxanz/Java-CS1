@@ -9,12 +9,22 @@ public class Lab3 {
     public static void main(String[] args) {
         int [] arr = {1 , 2 , 3, 4, 5};
 
-        System.out.print(q1(arr,2));
+        System.out.println(q1(arr,2));
 
-        System.out.print(q2(arr,1,4));
-        System.out.print(q1(arr,1));
+        System.out.println(q2(arr,1,4));
+        System.out.println(q1(arr,1));
 
-        System.out.print(q3(arr, 0,4));
+        System.out.println(q3(arr, 0,4));
+        
+        System.out.println(q4(arr, 4, 0));
+
+        System.out.println(q5(arr, 5));
+
+        System.out.println(q6(arr, 3, 6));
+
+        System.out.println(q7(arr, 1, 4));
+
+        System.out.println(q8(arr, 3));
 
     }
 
@@ -100,12 +110,14 @@ public class Lab3 {
         int temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = temp;
+
+        return 0;
     }
     /*
     Create a helper method that accepts:
 
         An array
- 
+
         A source index
 
         A destination index
@@ -121,6 +133,9 @@ public class Lab3 {
     */
     public static int q4(int[] arr, int sourcei, int destinationi){
         if (arr == null) return -1;
+
+        if (sourcei < 0 || sourcei >= arr.length) return -1;
+        if (destinationi < 0 || destinationi >= arr.length) return -1;
 
         arr[destinationi] = arr[sourcei];
 
@@ -143,8 +158,13 @@ public class Lab3 {
 
         The index is outside the valid range (return false)
     */
-    public static FIXME q5(FIXME,FIXME){
-
+    public static boolean q5(int[] array, int i){
+        if (array == null) return false;
+        
+        if (i < 0 || i >= array.length) return false;
+        
+        return array[i] % 2 == 0;
+        
     }
     /*
     Create a helper method that accepts:
@@ -163,7 +183,15 @@ public class Lab3 {
 
     If any edge case occurs, the array should remain unchanged.
     */
-    public static FIXME q6(FIXME,FIXME,FIXME){
+    public static int q6(int[] array, int i, int value){
+        if (array == null) return -1;
+        if (i < 0 || i >= array.length) return -1;
+
+        array[i] = array[i] + value;
+
+        return array[i];
+
+
 
     }
     /*
@@ -183,8 +211,12 @@ public class Lab3 {
 
         If validation fails, return 0
     */
-    public static FIXME q7(FIXME,FIXME,FIXME){
+    public static int q7(int[] arr,int i1,int i2){
+        if (arr == null) return 0;
+        if (i1 < 0 || i1 >= arr.length) return 0;
+        if (i2 < 0 || i2 >= arr.length) return 0;
 
+        return arr[i1] - arr[i2];
     }
     /*
     Create a helper method that accepts:
@@ -202,7 +234,11 @@ public class Lab3 {
 
     If validation fails, return 0.
     */
-    public static FIXME q8(FIXME,FIXME){
+    public static int q8(int[] arr, int i){
+        if (arr == null) return 0;
+        if (i < 0 || i >= arr.length) return 0;
+
+        return arr[i] * arr[i];
 
     }
 
