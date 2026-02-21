@@ -6,30 +6,36 @@ public class whilenforpratice {
     int maxNum = arr[0];
     int minNum = arr[0];
     double average = 0;
+    int sum = 0;
     //Find the maxNum using a loop
     int i = 0;
 
+
     while (i < arr.length){
       int value = arr[i];
-      if (maxNum < value){
-        System.out.print("value");
-  
-        maxNum = value;
+        if (maxNum < value){
+          System.out.print("value");
+          maxNum = value;
       }
       i++;
-
     } 
-    i = 0;
+
+
     //Find the minNum using a do-while loop
+    int j = 0;
     do { 
-        int newValue = arr[i];
-        if(minNum < newValue){
-          System.out.print(newValue);
+        if (arr[j] < minNum) {
+          minNum = arr[j];
         }
         i++;
     } while (i < arr.length);
+
+
+
     //Find the average using a for loop
-    double sum = 0;
-    for (int i = 0,i < arr.length;i++)
+    for (int k = 0; k < arr.length; k++){
+      sum += arr[k];
+    }
+    average = (double) sum / arr.length;
   }
 }
