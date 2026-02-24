@@ -31,6 +31,7 @@ public class filereading{
         System.out.println("The max grade is" + maxGrade);
         System.out.println("The lowest grade is" + minGrade);
         System.out.println("The average grade is" + average/totalS);
+        
     } catch (Exception e) {
 
       System.out.println("Found error:" + e);
