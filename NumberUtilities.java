@@ -63,7 +63,7 @@ public class NumberUtilities {
     // 1) Print the menu
     public static void printMenu() {
         //Code Goes here 
-        System.out.println("=== Number Utilities Menu ===");
+        System.out.println(" Utilities Menu ");
         System.out.println("1 Factorial");
         System.out.println("2 Check Prime");
         System.out.println("3 Reverse Digits");
@@ -103,6 +103,5 @@ public class NumberUtilities {
             n /= 10;
         }
         return reversed;
-
     }
 }
