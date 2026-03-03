@@ -93,7 +93,7 @@ public class inclass2{
             System.out.println("Avg temperature for Wednesday: " + (wednesdaySum / wednesdayCount));
             System.out.println("Avg temperature for Thursday: " + (thursdaySum / thursdayCount));
             System.out.println("Avg temperature for Friday: " + (fridaySum / fridayCount));
-
+            
             scanner.close(); // this line right here just closes the scanner once we are done using it
 
         } catch(FileNotFoundException e){
