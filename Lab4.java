@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Lab4 {
     /*
     * Hello and welcome to Lab 4!
@@ -18,18 +22,46 @@ public class Lab4 {
     * You are allowed to create as many extra helper methods that you think you may need, the minimum
     * requirement is to have the ones included in this skeleton code.
     *
-    * */
+    * */ 
+    static int count = 0;
+
     public static void main(String[] args) {
+
+        String[] names = new String[100];
+        int[] grades = new int[100];
+
+        loadData("student_grades.txt", names, grades);
+
         // TODO: print the entire list of students
-
+        System.out.println("All Students:");
+        for (int i = 0; i < count; i++) {
+            System.out.println(names[i] + " " + grades[i]);
+        }
         // TODO: print the name of the student with the highest grade
-
+        System.out.println("\nHighest Grade Student:");
+        System.out.println(findHighest(grades, names));
         // TODO: print the names of all the students that have grades higher than 80
+        System.out.println("\nStudents >= 80:");
+        String[] above = findAbove(grades, names, 80);
+        for (int i = 0; i < count; i++) {
+            if (above[i] != null) {
+                System.out.println(above[i]);
+            }
+        }
 
         // TODO: print the names of all the students with grades lower than 60
-
+        System.out.println("\nStudents < 60:");
+        String[] below = findBelow(grades, names, 60);
+        for (int i = 0; i < count; i++) {
+            if (below[i] != null) {
+                System.out.println(below[i]);
+            }
+        }
         // TODO: print the average grade of all the students
+        System.out.println("\nAverage Grade:");
+        System.out.println(calcAverage(grades));
     }
+    
 
     /*
     * Complete the loadData method. This method should receive:
@@ -43,7 +75,24 @@ public class Lab4 {
     * The method does not return anything
     * */
     // TODO: create your method here. Be sure to use the name "loadData" for your method!
+    public static void loadData(String filename, String[] names, int[] grades) {
 
+        try {
+            File file = new File(filename);
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNext()) {
+                names[count] = scanner.next();
+                grades[count] = scanner.nextInt();
+                count = count + 1;
+            }
+
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        }
+    }
 
     /*
     * Complete the findHighest method. The method should receive:
@@ -53,7 +102,18 @@ public class Lab4 {
     * And return the name of the student with the highest grade
     * */
     // TODO: create your method here. Be sure to use the name "findHighest" for your method!
+    public static String findHighest(int[] grades, String[] names) {
 
+        int maxIndex = 0;
+
+        for (int i = 1; i < count; i++) {
+            if (grades[i] > grades[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        return names[maxIndex];
+    }
     /*
      * Complete the findAbove method. The method should receive:
      *   - An int array
@@ -64,7 +124,19 @@ public class Lab4 {
      * equal to or higher than the integer value provided.
      * */
     // TODO: create your method here. Be sure to use the name "findAbove" for your method!
+    public static String[] findAbove(int[] grades, String[] names, int value) {
 
+        String[] result = new String[100];
+        int index = 0;
+
+        for (int i = 0; i < count; i++) {
+            if (grades[i] >= value) {
+                result[index] = names[i];
+                index = index + 1;
+            }
+        }
+        return result;
+    }
     /*
      * Complete the findBelow method. The method should receive:
      *   - An int array
@@ -75,6 +147,20 @@ public class Lab4 {
      * all the students that have a grade that is less than the provided value
      * */
     // TODO: create your method here. Be sure to use the name "findBelow" for your method!
+    public static String[] findBelow(int[] grades, String[] names, int value) {
+
+        String[] result = new String[100];
+        int index = 0;
+
+        for (int i = 0; i < count; i++) {
+            if (grades[i] < value) {
+                result[index] = names[i];
+                index = index + 1;
+            }
+        }
+
+        return result;
+    }
 
     /*
      * Complete the calcAverage method. The method should receive:
@@ -83,5 +169,15 @@ public class Lab4 {
      * Return the average of the values in the array
      * */
     // TODO: create your method here. Be sure to use the name "calcAverage" for your method!
+    public static double calcAverage(int[] grades) {
+
+        int sum = 0;
+
+        for (int i = 0; i < count; i++) {
+            sum = sum + grades[i];
+        }
+
+        return (double) sum / count;
+    }
 
 }
