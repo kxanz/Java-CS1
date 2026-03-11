@@ -24,9 +24,8 @@ public class Lab4 {
     *
     * */ 
     static int count = 0;
-
+        
     public static void main(String[] args) {
-
         String[] names = new String[100];
         int[] grades = new int[100];
 
