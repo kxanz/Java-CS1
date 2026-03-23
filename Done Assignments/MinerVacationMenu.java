@@ -17,6 +17,12 @@ public class MinerVacationMenu {
 
     Scanner sc = new Scanner(System.in);
 
+    int order = 1;
+    int viewCart = 2;
+    int manageOrder = 3;
+    int checkout = 4;
+    int exit = 5;
+    int vacationPriceSummary = 6;
 
     System.out.println("=== Miner Vacation Planner ===");
     System.out.println("1. Order");
@@ -26,8 +32,27 @@ public class MinerVacationMenu {
     System.out.println("5. Exit");
     System.out.println("6. Vacation Price Summary");
 
+    System.out.println("Select an option: ");
+    int num = sc.nextInt();
 
-
+    if (num == order ){
+      System.out.println(order());
+    }
+    if (num == viewCart ){
+      System.out.println(viewCart());
+    }
+    if (num == manageOrder ){
+      System.out.println(manageCart());
+    }
+    if (num == checkout ){
+      System.out.println(checkout());
+    }
+    if (num == exit ){
+      System.out.println(exit());
+    }
+    if (num == vacationPriceSummary){
+      System.out.println(vacationPriceSummary());
+    }
 
 
   }
@@ -47,15 +72,13 @@ public class MinerVacationMenu {
 
   public static float viewCart(){
 
-   
-
   }
 
 
 
 
 
-  public static float manageOrder(){
+  public static float manageCart(){
 
     
 
@@ -65,7 +88,7 @@ public class MinerVacationMenu {
 
 
 
-  public static float Checkout(){
+  public static float checkout(){
     
     Scanner scanner = new Scanner(file);
     Scanner sc = new Scanner(System.in);
@@ -73,7 +96,7 @@ public class MinerVacationMenu {
 
   }
 
-  public static float Exit(){
+  public static float exit(){
 
     Scanner scanner = new Scanner(file);
     Scanner sc = new Scanner(System.in);
