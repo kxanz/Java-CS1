@@ -11,8 +11,8 @@ public class recursive {
     public static int sumDigits(int n){
         n = Math.abs(n);
 
-        if(n < 5) return n; 
+        if(n < 10) return n; 
 
-        return n + sumDigits(n + 1);
+        return (n % 10) + sumDigits(n / 10);
     } 
 }
