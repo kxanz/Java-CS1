@@ -29,6 +29,7 @@ public class Practice {
                 oneDarr[row] = sumRow;
             }
             return oneDarr;
-        }
+        
     
+}
 }
