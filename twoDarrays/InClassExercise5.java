@@ -8,25 +8,57 @@ public class InClassExercise5 {
 
 		System.out.println(sumDiagonals(arr));
 		System.out.println(sumOuter(arr));
-		System.out.println(sumColumns(arr));
+		
+		int[] result = sumColumns(arr);
+
+		for (int i = 0; i < result.length; i++){
+			System.out.println(result[i]);
+		}
 	}
 
 	// ex 1
 	public static int sumDiagonals(int[][] arr){
         //Create your method here
-        return 0;
-    }
+		int sum = 0;
 
-
+		for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[row].length; col++){
+				if (row == col ){
+					sum += arr[row][col];
+				}
+			}	
+		}
+		return sum;		
+	}
 	// ex 2
 	public static int sumOuter(int[][] arr){
         //Create your method here
-        return 0;
-	}
+		int sum = 0;
+
+		for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[row].length; col++){
+				if (arr[row][col] == arr[1][1]) {
+					sum -= arr[row][col];
+				}
+				sum += arr[row][col];
+				}
+			}
+			return sum;
+		}
 
 	// ex 3
-	public static int sumColumns(int[][] arr){
-        //Create your method here
-        return 0;
-	}
+	public static int[] sumColumns(int[][] arr){
+		int[] oneDim = new int[arr[0].length];
+
+        for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[row].length; col++){
+				int currentValue = arr[row][col];
+				oneDim[col] = oneDim[col] + currentValue;
+			}
+		}
+		return oneDim;
 }
+}
+// ex 3 thinking 
+// step 1 abstraction (add the columns) in each row increase
+// after we add the column of each row we increase the column
