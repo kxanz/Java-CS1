@@ -12,6 +12,11 @@ public class Lab6 {
     * */
     public static void main(String[] args) {
         // Make sure to test the methods that you've completed here in main!
+        int[][] arr = {{1, 2, 3},
+                       {4, 5, 6},
+                       {7, 8, 9}};
+
+        System.out.println(sumDiagonals(arr));
     }
 
 
@@ -28,7 +33,16 @@ public class Lab6 {
      * */
     public static int sumDiagonals(int[][] arr){
         //Create your method here
-        return 0;
+        int sum = 0;
+
+        for (int row = 0; row < arr.length; row++){
+            for (int col = 0; col < arr[row].length; col++){
+                if (row == col){
+                    sum += arr[row][col];
+                }
+            }
+        }
+        return sum;
     }
 
 
