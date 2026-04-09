@@ -1,4 +1,4 @@
-package org.utep.cs1.labs;
+package twoDarrays;
 
 public class Lab6 {
     /*
