@@ -15,8 +15,19 @@ public class Lab6 {
         int[][] arr = {{1, 2, 3},
                        {4, 5, 6},
                        {7, 8, 9}};
-
+        // Method 1
         System.out.println(sumDiagonals(arr));
+        // Method 2
+        // Method 3
+        int[] colSum = sumColumns(arr);
+
+        for (int i = 0; i < arr.length; i++){
+            System.out.println(colSum[i]);
+        }
+        //Method 4
+        //Method 5
+        //Method 6
+        //Method 7
     }
 
 
@@ -62,6 +73,7 @@ public class Lab6 {
     * */
     public static void spiral(int[][] arr){
         //Create your method here
+
     }
 
     /*
@@ -80,7 +92,15 @@ public class Lab6 {
     * */
     public static int[] sumColumns(int[][] arr){
         //Create your method here
-        return null;
+        int[] oneDim = new int[arr[0].length];
+
+        for (int row = 0; row < arr.length; row++){
+			for (int col = 0; col < arr[row].length; col++){
+				int currentValue = arr[row][col];
+				oneDim[col] = oneDim[col] + currentValue;
+			}
+		}
+		return oneDim;
     }
 
     /*
