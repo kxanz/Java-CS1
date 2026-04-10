@@ -18,6 +18,8 @@ public class Lab6 {
         // Method 1
         System.out.println(sumDiagonals(arr));
         // Method 2
+        spiral(arr);
+        System.out.println();
         // Method 3
         int[] colSum = sumColumns(arr);
 
@@ -25,7 +27,9 @@ public class Lab6 {
             System.out.println(colSum[i]);
         }
         //Method 4
+        System.out.println(getMiddle(arr));
         //Method 5
+
         //Method 6
         //Method 7
     }
@@ -73,7 +77,37 @@ public class Lab6 {
     * */
     public static void spiral(int[][] arr){
         //Create your method here
-
+        int top = 0;
+        int bottom = arr.length - 1;
+        int left = 0;
+        int right = arr[0].length - 1;
+    
+        while (top <= bottom && left <= right){
+    
+            for (int col = left; col <= right; col++){
+                System.out.print(arr[top][col] + " ");
+            }
+            top++;
+    
+            for (int row = top; row <= bottom; row++){
+                System.out.print(arr[row][right] + " ");
+            }
+            right--;
+    
+            if (top <= bottom){
+                for (int col = right; col >= left; col--){
+                    System.out.print(arr[bottom][col] + " ");
+                }
+                bottom--;
+            }
+    
+            if (left <= right){
+                for (int row = bottom; row >= top; row--){
+                    System.out.print(arr[row][left] + " ");
+                }
+                left++;
+            }
+        }
     }
 
     /*
@@ -109,19 +143,32 @@ public class Lab6 {
     * that form the middle square
     *
     * e.g.
-    * 1 2 3
-    * 4 5 6
-    * 7 8 9
-    * output = 5.0
+    * 1 2 3 1 1
+    * 4 5 6 2 2
+    * 7 8 9 7 8
+    * 3 4 5 6 8.,
+    * 7 8 9 2 3
+    * output = 9.0
     *
-    * 1 2
-    * 3 4
+    * 1 2 5 6
+    * 3 4 7 8
+    * 1 2 5 6
+    * 3 4 7 8
     * output = 1+2+3+4/4 = 10/4 = 2.5
     *
     * */
     public static double getMiddle(int[][] arr){
         //Create your method here
-        return 0;
+        int mid = arr.length / 2;
+        
+        if (arr.length % 2 == 0){
+            double sum = 0;
+
+            sum += arr[mid][mid] + arr[mid - 1][mid] + arr[mid][mid - 1] + arr[mid - 1][mid - 1];
+            return sum / 4;
+        }
+
+        return arr[mid][mid];
     }
 
     /*
