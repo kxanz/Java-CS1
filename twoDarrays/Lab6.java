@@ -28,11 +28,29 @@ public class Lab6 {
         }
         //Method 4
         System.out.println(getMiddle(arr));
+
         //Method 5
+        System.out.println(arraysAreEqual(arr, arr));
 
         //Method 6
+        int[][] swapped = rowSwap(arr, 0, 2);
+        for (int row = 0; row < swapped.length; row++){
+            for (int col = 0; col < swapped[row].length; col++){
+                System.out.print(swapped[row][col] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
         //Method 7
-    }
+        int[][] cropped = cropArray(arr, 1, 2, 2, 2);
+
+        for (int row = 0; row < cropped.length; row++){
+            for (int col = 0; col < cropped[row].length; col++){
+                System.out.print(cropped[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }   
 
 
     /*
@@ -52,7 +70,7 @@ public class Lab6 {
 
         for (int row = 0; row < arr.length; row++){
             for (int col = 0; col < arr[row].length; col++){
-                if (row == col){
+                if (row == col || row + col == arr.length - 1){
                     sum += arr[row][col];
                 }
             }
@@ -186,7 +204,21 @@ public class Lab6 {
     * */
     public static boolean arraysAreEqual(int[][] arr1, int[][] arr2){
         //Create your method here
-        return false;
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+
+        for ( int i = 0; i < arr1.length; i++){
+            if ( arr1[i].length != arr2[i].length){
+                return false;
+            }
+            for ( int j = 0; j < arr1[i].length; j++){
+                if ( arr1[i][j] != arr2[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /*
@@ -212,7 +244,13 @@ public class Lab6 {
     * */
     public static int[][] rowSwap(int[][] arr, int rowAIndex, int rowBIndex){
         //Create your method here
-        return null;
+        int[] temp = arr[rowAIndex]; 
+        
+        arr[rowAIndex] = arr[rowBIndex];
+        arr[rowBIndex] = temp;
+
+
+        return arr;
     }
 
     /*
@@ -242,7 +280,26 @@ public class Lab6 {
     * 1 2
     * */
     public static int[][] cropArray(int[][] arr, int startRow, int startCol, int endRow, int endCol){
-        return null;
+
+        int numRows = endRow - startRow + 1;
+        int numCols = endCol - startCol + 1;
+
+        int[][] newArray = new int[numRows][numCols];
+
+        int newRow = 0;
+
+        for (int row = startRow; row <= endRow; row++) {
+            int newCol = 0;
+
+            for (int col = startCol; col <= endCol; col++){
+                newArray[newRow][newCol] = arr[row][col];
+                newCol++;
+            }
+
+            newRow++;
+        }
+
+       return newArray;
     }
 
 
