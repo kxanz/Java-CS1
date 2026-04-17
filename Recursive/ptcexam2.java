@@ -1,0 +1,3 @@
+class ptcexam2{
+
+}
